@@ -1,0 +1,20 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:2222/eureka/
+
+server:
+  port: 8016
+
+spring:
+  application:
+    name: service-zull
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: RIBBON-CONSUMER
+    api-b:
+      path: /api-b/**
+      serviceId: SERVICE-FEIGN
